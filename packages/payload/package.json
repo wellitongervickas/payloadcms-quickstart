@@ -1,0 +1,58 @@
+{
+  "name": "@repo/payload",
+  "version": "0.0.1",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./src/index.ts",
+  "exports": {
+    "./*": "./src/*.ts",
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./collections": {
+      "import": "./src/collections/index.ts",
+      "types": "./dist/collections/index.d.ts",
+      "default": "./src/collections/index.ts"
+    },
+    "./plugins": {
+      "import": "./src/plugins/index.ts",
+      "types": "./dist/plugins/index.d.ts",
+      "default": "./src/plugins/index.ts"
+    },
+    "./locales": {
+      "import": "./src/locales/config.ts",
+      "types": "./dist/locales/config.d.ts",
+      "default": "./src/locales/config.ts"
+    }
+  },
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "clean": "git clean -xdf .cache .turbo dist node_modules *.tsbuildinfo",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src --max-warnings 0",
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "@payloadcms/db-postgres": "^3.52.0",
+    "@payloadcms/next": "^3.52.0",
+    "@payloadcms/payload-cloud": "^3.52.0",
+    "@payloadcms/richtext-lexical": "^3.52.0",
+    "@payloadcms/translations": "^3.52.0",
+    "@payloadcms/ui": "^3.52.0",
+    "payload": "^3.52.0",
+    "sharp": "0.34.3"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "eslint": "^9.33.0",
+    "typescript": "5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

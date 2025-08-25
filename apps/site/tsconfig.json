@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "references": [
+    { "path": "../../packages/ui" },
+    { "path": "../../packages/payload" },
+  ],
+  "include": ["${configDir}", ".next/types/**/*.ts"]
+}

@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "strict": false,
+    "paths": {
+      "@repo/ui/*": ["./src/*"]
+    }
+  }
+}

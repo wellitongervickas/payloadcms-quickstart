@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "rootDir": "${configDir}/src",
+    "outDir": "${configDir}/dist",
+    "composite": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "noImplicitOverride": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "lib": ["es2022", "DOM", "DOM.Iterable"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "preserve",
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "emitDeclarationOnly": true,
+    "sourceMap": true,
+    "target": "ES2022"
+  },
+  "include": ["${configDir}/src"],
+  "exclude": [
+    "${configDir}/.next/types/**/*.ts",
+    "${configDir}/out/next/types/**/*.ts",
+    "${configDir}/dist",
+    "${configDir}/build",
+    "${configDir}/out",
+    "${configDir}/temp"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "references": [{ "path": "../ui" }],
+  "compilerOptions": {
+    "lib": ["ES2022"]
+  }
+}
