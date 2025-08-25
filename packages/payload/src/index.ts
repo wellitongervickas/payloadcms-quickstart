@@ -15,14 +15,19 @@ import { sharp } from "@repo/payload/sharp";
 import { plugins } from "@repo/payload/plugins";
 import { collections } from "@repo/payload/collections";
 import { Locale } from "@repo/payload/locales";
+import { fileURLToPath } from "url";
+import path from "path";
 
 export type PayloadConfigOptions = {
   importMapBaseDir: string;
   cronSecret: string;
   payloadSecret: string;
   databaseURI: string;
-  typescriptOutputFile: string;
+  typescriptOutputFile?: string;
 };
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 export const getPayloadConfig = async ({
   importMapBaseDir,
@@ -59,7 +64,8 @@ export const getPayloadConfig = async ({
       secret: payloadSecret,
     }),
     typescript: typescript({
-      outputFile: typescriptOutputFile,
+      outputFile:
+        typescriptOutputFile || path.resolve(dirname, "payload-types.ts"),
     }),
     db: db({
       pool: {
